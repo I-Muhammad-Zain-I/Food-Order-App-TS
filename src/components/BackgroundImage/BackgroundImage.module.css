@@ -1,0 +1,8 @@
+.background-image {
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: bottom bottom;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 2rem;
+}
