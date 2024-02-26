@@ -2,18 +2,19 @@ import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import cartSvg from '../../assets/images/cart.svg';
 import classes from './Header.module.css';
 import OrderModalContext from '../../context/OrderModalContext';
-
+import ModalAppearContext from '../../context/ModalAppearContext';
 const Header = (): ReactElement => {
 
   const {state: {orderedItems}} = useContext(OrderModalContext)
-
+  const {setAppear} = useContext(ModalAppearContext)
 
   const [isButtonAnimated, setIsButtonAnimated] = useState(false)
-  const [count, setCount] = useState(0);
+  
   console.log("Header Re-rendered");
 
   const modalAppearHandler = () => {
-    // modalAppearCtx.setAppear(true);
+    console.log("Appear True set")
+    setAppear(true);
   }
 
   

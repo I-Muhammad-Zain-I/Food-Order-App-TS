@@ -1,8 +1,8 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, { useState, useEffect, ReactElement, ReactNode } from 'react'
 import { images } from '../../constants/index.js'
 import classes from './BackgroundImage.module.css'
 type Props = {
-  children: ReactElement[] | ReactElement
+  children: ReactNode
 }
 
 
