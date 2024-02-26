@@ -1,8 +1,13 @@
 import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import cartSvg from '../../assets/images/cart.svg';
 import classes from './Header.module.css';
+import OrderModalContext from '../../context/OrderModalContext';
 
 const Header = (): ReactElement => {
+
+  const {state: {orderedItems}} = useContext(OrderModalContext)
+
+
   const [isButtonAnimated, setIsButtonAnimated] = useState(false)
   const [count, setCount] = useState(0);
   console.log("Header Re-rendered");
@@ -13,7 +18,7 @@ const Header = (): ReactElement => {
 
   
   useEffect(() => {
-    if(count === 0) {
+    if(orderedItems.length === 0) {
       // Stop Bump from animation on start
       return;
     }
@@ -26,7 +31,7 @@ const Header = (): ReactElement => {
     }, 300)
     return () => { clearTimeout(timer) }
 
-}, [count])
+}, [orderedItems])
 
   const btnClasses = `${classes['cart-button']} ${isButtonAnimated && classes['bump']}`
   
@@ -40,7 +45,7 @@ const Header = (): ReactElement => {
       >
         <img className={`${classes['cart-icon']}`} src={cartSvg} />
         <p className={`${classes['cart-label']}`}>Your Cart</p>
-        <div className={`${classes['cart-item-counts']}`}>{count}</div>
+        <div className={`${classes['cart-item-counts']}`}>{orderedItems.length}</div>
       </button>
      
     </header>

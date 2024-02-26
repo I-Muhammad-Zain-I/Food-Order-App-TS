@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useContext, useState } from 'react'
 import styles from './FoodList.module.css'
 import { FoodItem, CartItem } from '../../constants'
-
+import OrderModalContext from '../../context/OrderModalContext'
 type Props = {
   isLoading: boolean
   foodItem: FoodItem
@@ -11,6 +11,7 @@ type Props = {
 
 const FoodListItem = (props: Props) => {
   const [amount, setAmount] = useState(0);
+  const OrderModalCtx = useContext(OrderModalContext)
   
   const foodAmountChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setAmount(+e.target.value)
@@ -29,7 +30,7 @@ const FoodListItem = (props: Props) => {
     };
     setAmount(0);
     console.table(cartItem)
-    //OrderModalCtx.AddOrderToCart(cartItem)
+    OrderModalCtx.AddOrderToCart(cartItem)
   }
 
   return (
