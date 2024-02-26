@@ -2,7 +2,7 @@ import React, { useState, useEffect, ReactElement } from 'react'
 import { images } from '../../constants/index.js'
 import classes from './BackgroundImage.module.css'
 type Props = {
-  children: ReactElement
+  children: ReactElement[] | ReactElement
 }
 
 
@@ -24,7 +24,7 @@ const BackgroundImage = (props: Props) => {
 
 
 
-  
+
   return (
     <div 
       style={{backgroundImage: `url(${images[backgroundImage]})`}}

@@ -1,26 +1,23 @@
 .header {
-  background-color: brown;
-  color: white;
   display: flex;
-  padding: 10px;
   justify-content: space-between;
   align-items: center;
-  /* position: relative;
-  top: 0; */
+  background-color: brown;
+  color: white;
+  width: 100%;
+  padding: 10px;
   font-family: 'Roboto';
-  /* position: fixed;
-  top: 0; */
   position: fixed;
-top: 0;
-width: 100%;
-
+  top: 0;
 }
+
 .logo {
   font-size: 2rem;
   letter-spacing: 1.5px;
   font-weight: 600;
   margin-left: 5rem;
 }
+
 .cart-button {
   all: unset;
   font-family: 'Inter';
@@ -34,26 +31,29 @@ width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  transition: background-color 0.3s ease-in ;
- 
+  transition: background-color 0.3s ease-in;
+
 }
+
 .cart-button:hover {
   cursor: pointer;
   background-color: #61000077;
-  
+
 }
+
 .cart-icon {
   width: 30px;
 }
-.cart-label {
-  
-}
+
+.cart-label {}
+
 .cart-item-counts {
   background-color: brown;
   padding: 5px 15px;
   border-radius: inherit;
-  transition: background-color 0.3s ease-in ;
+  transition: background-color 0.3s ease-in;
 }
+
 .cart-button:hover .cart-item-counts {
   background-color: #fff;
   color: #610000;
@@ -68,15 +68,19 @@ width: 100%;
   0% {
     transform: scale(1);
   }
+
   10% {
     transform: scale(0.9);
   }
+
   30% {
     transform: scale(1.1);
   }
+
   50% {
     transform: scale(1.15);
   }
+
   100% {
     transform: scale(1);
   }
