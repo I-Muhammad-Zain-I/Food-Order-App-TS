@@ -22,9 +22,9 @@ type OrderModalContextType = {
 }
 const OrderModalContext = React.createContext<OrderModalContextType>({
   state: defaultOrderState,
-  AddOrderToCart: (cartItem: CartItem) => { },
-  AddOrderAmount: (cartItem: CartItem) => { },
-  SubtractOrderAmount: (cartItem: CartItem) => { },
+  AddOrderToCart: () => { },
+  AddOrderAmount: () => { },
+  SubtractOrderAmount: () => { },
 });
 
 const isPresent = (newItem: CartItem , orderedItems: CartItem[]): boolean => {
