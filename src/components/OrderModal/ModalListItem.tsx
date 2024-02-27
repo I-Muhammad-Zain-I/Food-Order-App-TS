@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import styles from './OrderModal.module.css';
 import OrderModalContext from '../../context/OrderModalContext';
 import { CartItem } from '../../constants';
@@ -11,11 +11,11 @@ type PropType = {
 const ModalListItem = (props: PropType) => {
   const { SubtractOrderAmount, AddOrderAmount } = useContext(OrderModalContext);
 
-  const subFoodAmount = (orderItem: any) => {
-    SubtractOrderAmount(orderItem);
+  const subFoodAmount = () => {
+    SubtractOrderAmount(props.orderItem);
   }
-  const addFoodAmount = (orderItem: any) => {
-    AddOrderAmount(orderItem)
+  const addFoodAmount = () => {
+    AddOrderAmount(props.orderItem)
   }
 
 
@@ -30,9 +30,9 @@ const ModalListItem = (props: PropType) => {
         </div>
       </div>
       {<div className={`${styles['modal-list-right']}`}>
-        <button onClick={() => subFoodAmount(props.orderItem)}
+        <button onClick={subFoodAmount}
           className={`${styles['list-btn']}`}>-</button>
-        <button onClick={() => addFoodAmount(props.orderItem)}
+        <button onClick={addFoodAmount}
           className={`${styles['list-btn']}`}>+</button>
       </div>}
     </li>

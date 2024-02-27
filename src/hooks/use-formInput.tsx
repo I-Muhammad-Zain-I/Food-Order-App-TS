@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 
 
-type UseFormInput = {
+export type UseFormInput = {
   enteredValue: string;
   hasError: boolean;
   IsValid: boolean;

@@ -1,9 +1,11 @@
-import React, {  ReactNode, createContext, Dispatch, SetStateAction, useState } from 'react';
+import {  ReactNode, createContext, Dispatch, SetStateAction, useState } from 'react';
 
 type ModalAppearContextProps = {
     appear: boolean;
     setAppear: Dispatch<SetStateAction<boolean>>;
 }
+
+// Context for Handling modal window hide/appear
 
 const ModalAppearContext = createContext<ModalAppearContextProps>({
     appear: false,

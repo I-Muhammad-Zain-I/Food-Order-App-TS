@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from './OrderModal.module.css';
-const OrderSubmitMessage = (props) => {
+
+type PropType = {
+  message: string,
+  flag: boolean
+  setAppear: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const OrderSubmitMessage = (props: PropType) => {
   
   const messageClass = props.flag ? `${styles.success}` : `${styles.failure}`
     const [timer, setTimer] = useState(3);

@@ -1,12 +1,10 @@
-import React, { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import styles from './FoodList.module.css'
 import { FoodItem, CartItem } from '../../constants'
 import OrderModalContext from '../../context/OrderModalContext'
 type Props = {
   isLoading: boolean
   foodItem: FoodItem
-  onAddFood: (cartItem: FoodItem) => void
-  updateFoodItems: (FoodItem: FoodItem) => void
 }
 
 const FoodListItem = (props: Props) => {

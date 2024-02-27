@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './OrderModal.module.css';
 import ModalList from './ModalList';

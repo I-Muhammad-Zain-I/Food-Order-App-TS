@@ -1,6 +1,9 @@
-import React, { ReactElement, useReducer, useState } from 'react'
+import React, { ReactElement, useReducer } from 'react'
 import { CartItem } from '../constants';
 
+
+
+// OrderModalContext to manage cart Operations
 
 type StateType = {
   orderedItems: CartItem[],
@@ -18,8 +21,6 @@ type OrderModalContextType = {
   SubtractOrderAmount: (cartItem: CartItem) => void,
 }
 const OrderModalContext = React.createContext<OrderModalContextType>({
-  //orderedItems: defaultOrderState.orderedItems,
-  //totalAmount: defaultOrderState.totalAmount,
   state: defaultOrderState,
   AddOrderToCart: (cartItem: CartItem) => { },
   AddOrderAmount: (cartItem: CartItem) => { },
@@ -43,7 +44,6 @@ const enum REDUCER_ACTION_TYPE  {
 type ReducerAction = {
   type: REDUCER_ACTION_TYPE,
   cartItem: CartItem,
-  //id: string
 }
 
 const orderModalReducer = (state: StateType, action: ReducerAction): typeof defaultOrderState => {
@@ -76,10 +76,7 @@ const orderModalReducer = (state: StateType, action: ReducerAction): typeof defa
       ).filter((item) => item !== null) as CartItem[]
       break;
   }
-  console.log('New Order Item');
-  console.log(newOrderItemList);
   newtotalAmount = newOrderItemList.reduce((acc, item) => (acc + item.amount * item.price), 0)
-  console.log(`New Total Amount: ${newtotalAmount}`)
   return { ...state, orderedItems: newOrderItemList, totalAmount: Number(newtotalAmount?.toFixed(2)) };
 }
 
@@ -105,12 +102,6 @@ export const OrderModalContextProvider = (props: ChildrenType) => {
     console.log("SubtractOrderAmount")
     orderDispatch({ type: REDUCER_ACTION_TYPE.SUB_AMOUNT, cartItem: cartItem })
   }
-  // const AddOrderAmount = (id) => {
-  //   orderDispatch({ type: 'ADD_AMOUNT', id: id })
-  // }
-  // const SubtractOrderAmount = (id) => {
-  //   orderDispatch({ type: 'SUB_AMOUNT', id: id })
-  // }
 
   return (
     <OrderModalContext.Provider

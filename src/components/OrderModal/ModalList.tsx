@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import ModalListItem from './ModalListItem';
 import OrderModalContext from '../../context/OrderModalContext';
 import ModalAppearContext from '../../context/ModalAppearContext';
 import styles from './OrderModal.module.css';
 
-// import Checkout from './checkout-form/Checkout';
-// import { postUserOrders } from '../../api/api';
-// import OrderSubmitMessage from './OrderSubmitMessage';
 import ModalControl from './ModalControl';
+import Checkout from './CheckoutForm/Checkout';
+import { postUserOrders } from '../../api/api';
+import OrderSubmitMessage from './OrderSubmitMessage';
 
 const ModalList = (): JSX.Element => {
 
@@ -24,16 +24,15 @@ const ModalList = (): JSX.Element => {
 
   const orderSubmitHandler = (userData: any) => {
 
-    // const postUserOrderHandler = async () => {
-    //   const response = await postUserOrders(userData, OrderModalCtx.orderedItems);
-    //   if (response == 200) {
-    //     setAfterReqMsg({ message: "Order Completed Successfully", flag: true });
-    //   } else {
-    //     setAfterReqMsg({ message: "Something went wrong, please try again later", flag: false });
-    //   }
-    //   //    setTimeout(() => ModalAppearCtx.setAppear(false),3000)
-    // }
-    // postUserOrderHandler();
+    const postUserOrderHandler = async () => {
+      const response = await postUserOrders(userData, orderedItems);
+      if (response == 200) {
+        setAfterReqMsg({ message: "Order Completed Successfully", flag: true });
+      } else {
+        setAfterReqMsg({ message: "Something went wrong, please try again later", flag: false });
+      }
+    }
+    postUserOrderHandler();
 
   }
 
@@ -70,21 +69,19 @@ const ModalList = (): JSX.Element => {
             onOrder={setCheckoutAppear}
             onClose={modalAppearHandler}
           />
-          {/* {checkoutAppear && <Checkout
+          {checkoutAppear && <Checkout
+            appear={Boolean(totalAmount)}
             onCancel={modalAppearHandler}
-            appear={totalAmount}
-            setAppear={ModalAppearCtx.setAppear}
             onConfirm={orderSubmitHandler}
-          />} */}
+          />}
         </>
       }
 
       {
-        // messageDisplay && <OrderSubmitMessage
-        //   {...afterReqMsg}
-        //   setAfterReqMsg={setAfterReqMsg}
-        //   setAppear={ModalAppearCtx.setAppear}
-        // />
+        messageDisplay && <OrderSubmitMessage
+          {...afterReqMsg}
+          setAppear={setAppear}
+        />
       }
     </article>
   )
