@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 
 import './App.css'
 import BackgroundImage from './components/BackgroundImage/BackgroundImage'
@@ -9,10 +9,11 @@ import ModalAppearContext from './context/ModalAppearContext'
 import OrderModal from './components/OrderModal/OrderModal'
 
 function App() {
-  const [count, setCount] = useState(0)
+
   const {appear} = useContext(ModalAppearContext)
+
   return (
-     <BackgroundImage>
+     <BackgroundImage> 
       <Header />
       <main>
         <InfoBoard />
@@ -24,3 +25,15 @@ function App() {
 }
 
 export default App
+
+/**
+ * <BackgroundImage />: Cover Image component changes cover every 3 seconds
+ * 
+ * <Header />: Component that contains number of different meals ordered, clicking it triggers Order modal Window
+ * 
+ * <InfoBoard />: stateless presentational Component
+ * 
+ * <FoodList />: List Component that renders meals as it's List Items 
+ * 
+ * <OrderModal />: Modal Window triggered upon clicking on Cart button in header
+ */

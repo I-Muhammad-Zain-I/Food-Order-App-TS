@@ -21,3 +21,8 @@ const OrderModal = (): JSX.Element => {
 }
 
 export default OrderModal
+
+/**
+ * uses portal to render outside the component hierarchy
+ * note that .getElementById() uses non-null assertion "!"
+ */

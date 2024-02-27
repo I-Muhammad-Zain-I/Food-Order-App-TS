@@ -15,10 +15,6 @@
   border-radius: 15px;
   font-family: 'Inter';
 
-  /* position: absolute; */
-  /* top: 0%;
-  left: 50%;
-  transform: translate(-50%, 100%); */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -33,13 +29,13 @@
 
 @keyframes slideDownModal {
   from {
-      /* transform: translate(-50%, -50%); */
+   
       top: -300px;
 
   }
   to {
       top: 50%;
-      /* transform: translate(-50%, 100%); */
+     
   }
 }
 .modal__food-list {

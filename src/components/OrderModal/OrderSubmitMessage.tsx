@@ -37,3 +37,8 @@ const OrderSubmitMessage = (props: PropType) => {
 }
 
 export default OrderSubmitMessage
+
+/**
+ * Component that becomes visible when user POST the order 
+ * shows success or error message depending on response
+ */

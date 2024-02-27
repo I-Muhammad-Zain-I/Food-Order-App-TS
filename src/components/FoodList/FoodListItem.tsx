@@ -2,6 +2,8 @@ import { ChangeEvent, useContext, useState } from 'react'
 import styles from './FoodList.module.css'
 import { FoodItem, CartItem } from '../../constants'
 import OrderModalContext from '../../context/OrderModalContext'
+
+
 type Props = {
   isLoading: boolean
   foodItem: FoodItem
@@ -10,22 +12,21 @@ type Props = {
 const FoodListItem = (props: Props) => {
   const [amount, setAmount] = useState(0);
   const OrderModalCtx = useContext(OrderModalContext)
-  
+
   const foodAmountChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setAmount(+e.target.value)
-    // props.updateFoodItems({...props.foodItem, amount})
   }
 
-
-
   const addFoodHandler = () => {
-    if(amount == 0) return;
+    if (amount == 0) return;
+
     const cartItem: CartItem = {
       id: props.foodItem['id'],
       name: props.foodItem['name'],
       price: props.foodItem['price'],
       amount: amount,
     };
+
     setAmount(0);
     console.table(cartItem)
     OrderModalCtx.AddOrderToCart(cartItem)
@@ -42,10 +43,10 @@ const FoodListItem = (props: Props) => {
       <div className={`${styles['food-list-amount']}`}>
         <div className={`${styles['amount__container']}`}>
           <label htmlFor={props.foodItem['id']}>Amount</label>
-          <input 
+          <input
             id={props.foodItem['id']}
             className={`${styles['amount__input']}`}
-            type='number' 
+            type='number'
             value={amount}
             onChange={(e) => foodAmountChangeHandler(e)}
           />
@@ -60,3 +61,7 @@ const FoodListItem = (props: Props) => {
 }
 
 export default FoodListItem
+
+/**
+ * Maintains controlled input through amount state: once user clicks add the item along with its amount is added to CartItem
+ */

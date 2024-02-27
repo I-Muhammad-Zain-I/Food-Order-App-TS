@@ -1,8 +1,10 @@
-import React, { ReactElement, useContext, useEffect, useState } from 'react'
+import { ReactElement, useContext, useEffect, useState } from 'react'
 import cartSvg from '../../assets/images/cart.svg';
 import classes from './Header.module.css';
 import OrderModalContext from '../../context/OrderModalContext';
 import ModalAppearContext from '../../context/ModalAppearContext';
+
+
 const Header = (): ReactElement => {
 
   const {state: {orderedItems}} = useContext(OrderModalContext)
@@ -17,7 +19,6 @@ const Header = (): ReactElement => {
     setAppear(true);
   }
 
-  
   useEffect(() => {
     if(orderedItems.length === 0) {
       // Stop Bump from animation on start

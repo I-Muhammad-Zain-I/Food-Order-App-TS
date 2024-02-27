@@ -25,15 +25,17 @@ const ModalList = (): JSX.Element => {
   const orderSubmitHandler = (userData: any) => {
 
     const postUserOrderHandler = async () => {
+
       const response = await postUserOrders(userData, orderedItems);
+
       if (response == 200) {
         setAfterReqMsg({ message: "Order Completed Successfully", flag: true });
       } else {
         setAfterReqMsg({ message: "Something went wrong, please try again later", flag: false });
       }
     }
+  
     postUserOrderHandler();
-
   }
 
   const orderedItemList: JSX.Element[] = orderedItems.map((orderItem) => (
@@ -88,3 +90,7 @@ const ModalList = (): JSX.Element => {
 }
 
 export default ModalList
+
+/**
+ * Renders CartItem List along with Modal Control to Open Order Form
+ */

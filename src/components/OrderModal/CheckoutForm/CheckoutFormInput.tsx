@@ -1,6 +1,8 @@
 import React, { useImperativeHandle } from 'react'
 import useFormInput, { UseFormInput } from '../../../hooks/use-formInput'
 import classes from './Checkout.module.css';
+
+
 type Props = {
   label: string,
   validityFunction: (value: string) => boolean
@@ -39,3 +41,9 @@ const CheckoutFormInput = React.forwardRef((props: Props, ref) => {
 })
 
 export default CheckoutFormInput
+
+/**
+ * Exposes Input state value and validity to Checkout.tsx Component
+ * Uses useFormInput hook to abstract Input mechanisms: interaction, state change etc.
+ * 
+ */

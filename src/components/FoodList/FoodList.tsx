@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { foodItems } from '../../constants'
 import { FoodItem } from '../../constants';
 import FoodListItem from './FoodListItem';
-import styles from './FoodList.module.css'
 import { getMeals, getMealsReturnType } from '../../api/api';
+import styles from './FoodList.module.css'
+
 
 const FoodList = () => {
   const [foodItemsArray, setFoodItemsArray] = useState<FoodItem[]>(foodItems);      
@@ -39,3 +40,8 @@ const FoodList = () => {
 }
 
 export default FoodList
+
+
+/**
+ * Fetches Meals From Firebase in case of any error uses constant Array declared in constant/index.ts
+ */

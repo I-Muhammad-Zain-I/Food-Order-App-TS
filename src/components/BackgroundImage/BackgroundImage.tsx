@@ -1,12 +1,11 @@
-import React, { useState, useEffect, ReactElement, ReactNode } from 'react'
+import { useState, useEffect, ReactNode } from 'react'
 import { images } from '../../constants/index.js'
 import classes from './BackgroundImage.module.css'
+
+
 type Props = {
   children: ReactNode
 }
-
-
-
 
 const BackgroundImage = (props: Props) => {
   const [backgroundImage, setBackgroundImage] = useState(0);
@@ -21,16 +20,11 @@ const BackgroundImage = (props: Props) => {
     return () => clearInterval(inv)
   }, [])
 
-
-
-
-
   return (
     <div 
       style={{backgroundImage: `url(${images[backgroundImage]})`}}
       className={classes['background-image']}
-      >
-      
+    >
       {props.children}
     </div>
   )
